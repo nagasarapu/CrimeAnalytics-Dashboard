@@ -19,7 +19,7 @@ st.set_page_config(page_title="UK Well-being & Crime Dashboard", layout="wide")
 @st.cache_data
 def load_wellbeing_data():
     try:
-        df = pd.read_csv("Well-being_by_Quarter.csv")
+        df = pd.read_csv("data/Well-being_by_Quarter.csv")
 
         def parse_quarter_string(q_str):
             if pd.isna(q_str):
@@ -50,7 +50,7 @@ df_wellbeing = load_wellbeing_data()
 @st.cache_data
 def load_sussex_data():
     try:
-        df = pd.read_csv("cleaned_sussex_crime_data.csv", parse_dates=["month"])
+        df = pd.read_csv("data/cleaned_sussex_crime_data.csv", parse_dates=["month"])
 
         required_columns = ['month', 'month_name', 'year', 'crime_type', 
                           'latitude', 'longitude', 'last_outcome_category']
